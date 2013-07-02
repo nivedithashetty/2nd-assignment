@@ -1,0 +1,44 @@
+def mergesort(a,low,high):
+    i=0
+    result=[]
+    length=high-low+1
+    mid=0
+    merge1=0
+    merge2=0
+    if(low==high):
+        return
+    mid=(low+high)/2
+    mergesort(a,low,mid)
+    mergesort(a,mid+1,high)
+    for i in range(0,length):
+        result.append(a[low+i])
+    merge1=0
+    merge2=mid-low+1
+    for i in range(0,length):
+        if(merge2<=high-low):
+            if(merge1<=mid-low):
+                if(result[merge1]>result[merge2]):
+                    a[i+low]=result[merge2]
+                    merge2=merge2+1
+                else:
+                    a[i+low]=result[merge1]
+                    merge1=merge1+1
+            else:
+                a[i+low]=result[merge2]
+                merge2=merge2+1
+        else:
+            a[i+low]=result[merge1]
+            merge1=merge1+1
+
+a=[]
+print "Enter no of elements to be sorted: "
+n=int(raw_input(" "))
+print "Enter the array elements: "
+for i in range(0,n):
+    a.append(int(raw_input(" ")))
+mergesort(a,0,n-1)
+print "sorted array is: "
+for i in range(0,n):
+    print a[i]
+
+  
