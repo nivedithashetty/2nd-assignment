@@ -1,0 +1,56 @@
+import math
+a=[]
+
+def mergesort(arr,low,mid,high):
+    temp=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    l=low;
+    i=low;
+    m=mid+1;
+    while l<=mid and m<=high:
+        if(arr[l]<=arr[m]):
+             temp[i]=arr[l]
+             l=l+1
+        else:
+             temp[i]=arr[m]
+             m=m+1
+        i=i+1
+
+
+    if l>mid:
+        for k in range(m,high+1):
+             temp[i]=arr[k];
+             i=i+1
+         
+    else:
+        for k in range(l,mid+1):
+            temp[i]=arr[k]
+            i=i+1
+   
+    for k in range(low,high+1):
+        arr[k]=temp[k]
+        if high+1==n and low==0:
+            print a[k]
+        
+   
+
+print "Enter the total number of elements: "
+n=int(raw_input(" "))
+
+print "Enter the elements to be sorted: "
+for i in range(0,n):
+    a.append(int(raw_input(" ")))
+no_levels=int(math.ceil(math.log(len(a),2)))
+for i in range(0,no_levels):
+    prob_size=2**i
+    no_merges=int(math.ceil(len(a)/(2.0*prob_size)))
+    for j in range(0,no_merges):
+        start=2*prob_size*j
+        mid=start+prob_size-1
+        end=mid+prob_size
+        if end>n-1 and mid<=n-1 and start<=n-1:
+            end=n-1
+        elif end>=n-1 and mid>=n-1:
+            mid=start
+            end=start
+        mergesort(a,start,mid,end)
+        
