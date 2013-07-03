@@ -1,0 +1,35 @@
+mini=0
+row=0
+col=0
+count=0
+n=0
+k=0
+res=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+index=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+s=[0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+print "enter n and k"
+n=int(raw_input(" "))
+k=int(raw_input(" "))
+m=n*k
+a=[[11,20,350],[2,7,8],[3,9,11],[30,45,55]]
+j=0
+for i in range(0,k):
+    s[j]=a[i][0]
+    j=j+1
+while(count<m):
+    mini=s[0]
+    for i in range(0,k):
+        if(s[i]<=mini):
+            mini=s[i]
+            row=i
+            col=index[row]
+    res[count]=mini
+    count=count+1
+    index[row]=index[row]+1
+    if col<n-1:
+        s[row]=a[row][col+1]
+    else:
+        s[row]=9999999
+print "sorted array is \n"
+for i in range(0,m):
+    print res[i]
