@@ -30,6 +30,6 @@ while(count<m):
         s[row]=a[row][col+1]
     else:
         s[row]=9999999
-print "sorted array is \n"
+print "sorted array is :"
 for i in range(0,m):
     print res[i]
