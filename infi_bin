@@ -1,0 +1,47 @@
+a=[]
+def binary(a,beg,end):
+    mid=(beg+end)/2
+    if (a[mid]==0):
+        return binary(a,mid+1,end)
+    else:
+        if(a[mid-1]==0):
+            return mid
+        else:
+            return binary(a,beg,mid-1)
+
+def input_num():
+        print'Enter the array elements\npress -1 when you are done with the inputs'
+        while(1):
+            x=int(raw_input())
+            if x==-1:
+                break
+            a.append(x)
+
+        return a
+input_num()
+i=0
+flag=0
+fg=0
+n=1
+pos=0
+count=1
+while i>=0 and i<len(a):
+    if a[i]==1:
+        flag=1
+        break
+    fg=1
+    i=2**n
+    n=n+1
+if i==0:
+    print "pos is 0"
+elif flag==1:
+    pos=binary(a,2**(n-2),2**(n-1))
+    print "pos is"
+    print pos
+elif flag==0 and fg==1:
+    pos=binary(a,0,2**(n-1))
+    print "pos is"
+    print pos
+else:
+    print "not found"
+ 
