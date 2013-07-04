@@ -1,0 +1,42 @@
+a=[]
+def linear(a,start,end):
+    for i in range(start,end+1,1):
+        if a[i]==1:
+            print "pos is"
+            print i
+            f=1
+            break
+    if f==0:
+        print "1 is not found"
+def input_num():
+        print'Enter the array elements\npress -1 when you are done with the inputs'
+        while(1):
+            x=int(raw_input())
+            if x==-1:
+                break
+            a.append(x)
+
+        return a
+input_num()
+i=0
+flag=0
+fg=0
+n=1
+pos=0
+count=1
+while i>=0 and i<len(a):
+    if a[i]==1:
+        flag=1
+        break
+    fg=1
+    i=2**n
+    n=n+1
+if i==0:
+    print "pos is 0"
+elif flag==1:
+    linear(a,2**(n-2),2**(n-1))
+elif flag==0 and fg==1:
+    linear(a,0,2**(n-1))
+else:
+    print "not found"
+ 
